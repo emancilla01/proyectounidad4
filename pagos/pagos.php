@@ -17,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($accion === "editar") {
         $sql = "SELECT * FROM pagos WHERE id = '$id'";
     } elseif ($accion === "actualizar") {
-        $sql = "UPDATE pagos SET idventa = '$idventa', montopagado = '$montopagado', metodopago = '$metodopago', fechapago = '$fechapago', saldorest = '$saldorest',
+        $sql = "UPDATE pagos SET idventa = '$idventa', montopagado = '$montopagado', 
+        metodopago = '$metodopago', fechapago = '$fechapago', saldorest = '$saldorest',
         interesgenerado = '$interesgenerado'
         WHERE id = '$id'";
     } elseif ($accion === "eliminar") {
@@ -59,13 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="number" step="0.01" name="saldorest" id="saldorest">
 
     <label for="interesgenerado">Interes Generado :</label>
-    <input type="number" step="0.01" name="interesgenerado" id="interesgenerado">   
+    <input type="number" step="0.01" name="interesgenerado" id="interesgenerado">
 
 
     <!-- <label></label>
     <button type="button" onclick="enviar()">Enviar</button> -->
 
-    <
+    
 
 </form>
 </article>

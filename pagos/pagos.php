@@ -64,9 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <!-- <label></label>
-    <button type="button" onclick="enviar()">Enviar</button> -->
-
-    
+    <button type="button" onclick="enviar()">Enviar</button> -->   
 
 </form>
 </article>

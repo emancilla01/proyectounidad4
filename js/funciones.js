@@ -79,7 +79,6 @@ function enviardatos(formId, url, divId) {
     });
 }
 
-
  function editar(id,nombre){
     // alert(id +" " + nombre);
     id2 = document.getElementById('id');

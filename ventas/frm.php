@@ -2,30 +2,25 @@
 
     <h2>Compras</h2>
     <form action="/index.html" method="post" id="compras" onsubmit="return false;">
-        <label for="id">Id:</label>
-        <input type="number" name="id" id="id" value="" readonly>
+    <label for="id">Id:</label>
+        <input type="number" name="id" id="id">
 
         <label for="idproveedor">Id Proveedor :</label>
-        <select name="proveedor_id" id="proveedor_id">
-        <?php foreach ($proveedores as $proveedor) { 
-            echo "<option value='" . $proveedor["id"] . "'>" 
-                                   . $proveedor["nombre"] ."
-                  </option>";
-         } ?>
-    </select>
+        <input type="number" name="idproveedor" id="idproveedor">
 
         <label for="total">Total :</label>
-        <input type="text" name="total" id="total">
+        <input type="number" step="0.01" name="total" id="total">
 
         <label for="fecha">fecha :</label>
         <input type="datetime-local" name="fecha" id="fecha">
     
-    
+    <!-- <label for=""></label>
+    <input type="text"> -->
      
     
-        <label></label>
-        <button onclick="enviardatos('compras', '/compras/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>
+    <label></label>
+    <button onclick="enviardatos('compras', '/compras/ins_act.php', 'contenedor1')">Grabar</button>
+    <button onclick="">Consultar</button>
     </form>
 
     <h2>Detalle de Compras</h2>

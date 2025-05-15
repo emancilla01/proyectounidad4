@@ -1,24 +1,26 @@
 <?php
-
-
   include_once "../db/db.php";
-  $articulos = new db();
-  $articulos->conectar();
+  $compras = new db();
+  $compras->conectar();
+
   $id=$_REQUEST['id'];
-  $nombre=$_REQUEST['nombre'];
-  $descripcion=$_REQUEST['descripcion'];
-  $precio=$_REQUEST['precio'];
-  $stock=$_REQUEST['stock'];
+  $proveedor_id = $_REQUEST['proveedor_id'];
+  $total = $_REQUEST['total'];
+  $fecha = $_REQUEST['fecha'];
+  
   if($id != ""){
-    $sql = "UPDATE articulos SET nombre='$nombre', descripcion = '$descripcion', precio = '$precio',
-        stock = '$stock' WHERE id = '$id'"; 
-    $articulos->actualizar($sql);
+    $sql = "UPDATE compras 
+            SET proveedor_id = '$proveedor_id',
+                total = '$total', 
+                fecha = '$fecha',
+            WHERE id = '$id'"; 
+    $compras->actualizar($sql);
     echo "Registro actualizado correctamente";
     exit();
   }
-  $sql = "INSERT INTO articulos (nombre, descripcion, precio, stock) 
-                VALUES ('$nombre', '$descripcion', '$precio', '$stock')";
-  $articulos->insertar($sql);
+  $sql = "INSERT INTO compras (proveedor_id, total, fecha) 
+                VALUES ('$proveedor_id', '$total', '$fecha')";
+  $compras->insertar($sql);
   
-  $articulos->desconectar();
+  $compras->desconectar();
 ?> 

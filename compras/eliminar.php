@@ -1,12 +1,12 @@
 <?php
 
   include_once "../db/db.php";
-  $articulos = new db();
-  $articulos->conectar();
+  $compras = new db();
+  $compras->conectar();
 
   $id=$_REQUEST['id'];
-  $sql = "DELETE FROM articulos WHERE id='$id'";
-  $articulos->eliminar($sql);
+  $sql = "DELETE FROM compras WHERE id='$id'";
+  $compras->eliminar($sql);
 
-  $articulos->desconectar();
+  $compras->desconectar();
 ?> 

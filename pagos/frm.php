@@ -30,7 +30,7 @@
     <input type="number" step="0.01" name="interesgenerado" id="interesgenerado">
                 
         
-        <button onclick="enviardatos('frm', '/categorias/ins_act.php', 'contenedor1')">Grabar</button>
+        <button onclick="enviardatos('frm', '/pagos/ins_act.php', 'contenedor1')">Grabar</button>
         <button onclick="">Consultar</button> 
         
 

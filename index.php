@@ -19,7 +19,7 @@
                 <li><a href="#" onclick="ver('/usuarios/index.php')">Usuarios</a></li>
                 <li><a href="#" onclick="ver('/compras/index.php')">Compras</a></li>
                 <li><a href="#" onclick="ver('/ventas/ventas.php')">Ventas</a></li>
-                <li><a href="#" onclick="ver('/pagos/pagos.php')">Pagos</a></li>
+                <li><a href="#" onclick="ver('/pagos/index.php')">Pagos</a></li>
                 <li><a href="#" onclick="ver('/notificaciones/notificaciones.php')">Notificaciones</a></li>                
             </ul>
         </aside>

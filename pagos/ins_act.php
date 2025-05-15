@@ -11,7 +11,7 @@
   $saldorest=$_REQUEST['saldorest'];
   $interesgenerado=$_REQUEST['interesgenerado'];
   if($id != ""){
-    $sql = "UPDATE pagos SET idventa = '$idventa', montopagado = '$montopagado', 
+    $sql = "UPDATE pagos SET venta_id = '$idventa', montopagado = '$montopagado', 
         metodopago = '$metodopago', fechapago = '$fechapago', saldorest = '$saldorest',
         interesgenerado = '$interesgenerado'
         WHERE id = '$id'";
@@ -19,8 +19,8 @@
     echo "Registro actualizado correctamente";
     exit();
   }
-  $sql = "INSERT INTO pagos (id, idventa, montopagado, metodopago, fechapago, saldorest, interesgenerado) 
-                VALUES ('$id', '$montopagado', '$metodopago', '$fechapago', '$saldorest', '$interesgenerado')";
+  $sql = "INSERT INTO pagos (venta_id, monto_pagado, metodo_pago, fecha_pago, saldo_restante, interes_generado) 
+                VALUES ('$idventa', '$montopagado', '$metodopago', '$fechapago', '$saldorest', '$interesgenerado')";
   $pagos->insertar($sql);
   
   $pagos->desconectar();

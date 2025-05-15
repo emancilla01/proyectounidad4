@@ -79,19 +79,6 @@ function enviardatos(formId, url, divId) {
     });
 }
 
-//prueba de funcion para editar
-// function editar(id, nombre, contacto = '', direccion = '') {
-//     document.getElementById('id').value = id;
-//     document.getElementById('nombre').value = nombre;
-//     // Si existen los campos, asígnalos
-//     if (document.getElementById('contacto')) {
-//         document.getElementById('contacto').value = contacto;
-//     }
-//     if (document.getElementById('direccion')) {
-//         document.getElementById('direccion').value = direccion;
-//     }
-// }
-
 
  function editar(id,nombre){
     // alert(id +" " + nombre);

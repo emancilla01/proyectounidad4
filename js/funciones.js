@@ -93,6 +93,12 @@ function enviardatos(formId, url, divId) {
         .then(response => response.text())
         .then(data => { cont.innerHTML = data; });
 }
+function eliminar2(id,tb) {           
+    cont3 = document.querySelector("#contenedor3");
+    fetch("/"+tb+"/eliminar.php?id="+id+"&tb="+tb)
+        .then(response => response.text())
+        .then(data => { cont3.innerHTML = data });
+}
 
 //PRUEBA FUNCION CONSULTAR TABLA
 // function consultarTabla(url, divId) {

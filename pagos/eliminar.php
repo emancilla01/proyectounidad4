@@ -5,7 +5,9 @@
   $pagos->conectar();
 
   $id=$_REQUEST['id'];
+  
   $sql = "DELETE FROM pagos WHERE id='$id'";
+
   $pagos->eliminar($sql);
 
   $pagos->desconectar();

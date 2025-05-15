@@ -1,8 +1,8 @@
 <?php
-
   include_once "../db/db.php";
   $pagos = new db();
   $pagos->conectar();
+
   $id=$_REQUEST['id'];
   $idventa=$_REQUEST['idventa'];
   $montopagado=$_REQUEST['montopagado'];
@@ -10,6 +10,7 @@
   $fechapago=$_REQUEST['fechapago'];
   $saldorest=$_REQUEST['saldorest'];
   $interesgenerado=$_REQUEST['interesgenerado'];
+  
   if($id != ""){
     $sql = "UPDATE pagos SET venta_id = '$idventa', montopagado = '$montopagado', 
         metodopago = '$metodopago', fechapago = '$fechapago', saldorest = '$saldorest',

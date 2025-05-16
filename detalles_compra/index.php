@@ -9,8 +9,8 @@ $datos_d = $dbventas->obtenerRegistros($sql);
 $sql = "SELECT * FROM articulos"; 
 $articulos= $dbventas->obtenerRegistros($sql);
 ?>
-<section id="contenedor_detalle">
-    <?php include_once "../detalles_compra/frm.php"; ?>
-    <hr>
+<div id="contenedor_detalle">
+    <h2>Detalle de Compras</h2>
+    <?php include_once "../detalles_compra/frm.php"; ?>   
 
-</section>
+</div>

@@ -3,9 +3,9 @@
     <h2>Compras</h2>
     <form action="/index.html" method="post" id="compras" onsubmit="return false;">
         <label for="id">Id:</label>
-        <input type="number" name="id" id="id" value="" readonly>
+        <input type="text" name="id" id="id" value="" readonly>
 
-        <label for="idproveedor">Id Proveedor :</label>
+        <label for="proveedor_id">Id Proveedor :</label>
         <select name="proveedor_id" id="proveedor_id">
         <?php foreach ($proveedores as $proveedor) { 
             echo "<option value='" . $proveedor["id"] . "'>" 
@@ -28,10 +28,10 @@
         <button onclick="">Consultar</button>
     </form>
 
-    <h2>Detalle de Compras</h2>
-    <form action="/index.html" method="post" id="det_compras" onsubmit="return false;">
+    <!-- <h2>Detalle de Compras</h2> -->
+    
+    <!-- <form action="/index.html" method="post" id="det_compras" onsubmit="return false;">
         
-        <!-- <label for=""></label> -->
         <label for="id">Id:</label>
         <input type="number" name="id" id="id">
 
@@ -51,11 +51,8 @@
         <input type="number" step="0.01" name="subtotal" id="subtotal">    
 
         <button onclick="enviardatos('det_compras', '/compras/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>               
-
-
-    </form>
-
+        <button onclick="">Consultar</button>
+    </form> -->
 
     
 </article>

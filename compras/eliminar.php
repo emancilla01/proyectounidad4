@@ -1,12 +1,18 @@
 <?php
-
   include_once "../db/db.php";
-  $compras = new db();
-  $compras->conectar();
+  $dbventas = new db();
+  $dbventas->conectar();
 
   $id=$_REQUEST['id'];
-  $sql = "DELETE FROM compras WHERE id='$id'";
-  $compras->eliminar($sql);
+  $tb=$_REQUEST['tb'];
 
-  $compras->desconectar();
-?> 
+  $sql = "DELETE FROM $tb WHERE id = $id";
+  $dbventas->eliminar($sql);
+
+  
+  $sql = "SELECT * FROM $tb"; 
+  $datos2 = $dbventas->obtenerRegistros($sql);
+  include_once "../$tb/tabla.php";
+
+  $dbventas->desconectar();
+?>

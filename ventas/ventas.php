@@ -65,7 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h3>Ventas</h3>
     <form action="/index.html" method="post" id="ventas" onsubmit="return false;">
     
-        <!-- <label for=""></label> -->
         <label for="id">Id :</label>
         <input type="number" name="id" id="id">
 

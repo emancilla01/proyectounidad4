@@ -1,19 +1,24 @@
 <?php
 include_once "../db/db.php";
 
-$articulos = new db();
-$articulos->conectar();
-$sql = "SELECT id, nombre, descripcion, precio, stock  FROM articulos";
-$datos = $articulos->obtenerRegistros($sql);
+$dbventas = new db();
+$dbventas->conectar();
+
+$sql = "SELECT * FROM ventas";
+$datos = $dbventas->obtenerRegistros($sql);
 ?>
 
 
 
-<?php include_once "../articulos/frm.php"; ?>
+<?php include_once "../ventas/frm.php"; ?>
 
 <!-- <div id="contenedortabla" >
 
 </div> -->
 
-<hr>
-<?php include_once "../articulos/tabla.php"; ?>
+<div id="contenedor3">
+    <?php include_once "../detalles_venta/index.php"; ?>
+    <hr>
+    <hr>
+    <?php include_once "../ventas/tabla.php"; ?>
+</div>

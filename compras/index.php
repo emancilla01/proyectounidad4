@@ -5,13 +5,14 @@ $dbventas = new db();
 $dbventas->conectar();
 
 $sql = "SELECT *  FROM compras";
-$datos = $dbventas->obtenerRegistros($sql);
+$datos2 = $dbventas->obtenerRegistros($sql);
 
 // Consulta de proveedores
-$proveedoresDb = new db();
-$proveedoresDb->conectar();
+// $proveedoresDb = new db();
+// $proveedoresDb->conectar();
 $sqlProveedores = "SELECT * FROM proveedores";
-$proveedores = $proveedoresDb->obtenerRegistros($sqlProveedores);
+$proveedores = $dbventas->obtenerRegistros($sqlProveedores);
+$dbventas->desconectar();
 ?>
 
 

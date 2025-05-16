@@ -79,13 +79,32 @@ function enviardatos(formId, url, divId) {
     });
 }
 
- function editar(id,nombre){
-    // alert(id +" " + nombre);
-    id2 = document.getElementById('id');
-    nombre2 = document.getElementById('nombre');
-    id2.value = id;
-    nombre2.value = nombre;
- }
+function editar(id,tb){
+    datos = new FormData();
+    sql = "select * from "+ tb + " where id = " + id;
+    datos.append("sql",sql);
+    fetch("/"+tb+"/registro.php", {
+        body: datos,
+       method: "post"})
+    .then(response => response.json())
+    .then(data => { 
+        registro = data;
+        datos = new FormData(document.getElementById("compras"));
+        for (const key of datos.keys()) {
+            campo = document.getElementById(key);
+            campo.value = registro[key];
+          }
+    });         
+}
+
+// funcion editar original
+//  function editar(id,nombre){
+//     // alert(id +" " + nombre);
+//     id2 = document.getElementById('id');
+//     nombre2 = document.getElementById('nombre');
+//     id2.value = id;
+//     nombre2.value = nombre;
+//  }
 
  function eliminar(id, url, divId) {
     const cont = document.querySelector("#" + divId);

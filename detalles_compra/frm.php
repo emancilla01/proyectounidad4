@@ -1,7 +1,7 @@
 <form action="" method="post" id="frm_detalle" onsubmit="return false;">
     <table>
         <tr>
-        <td><input type="text" name="id" id="id" value=""></td>
+            <td><input type="text" name="id" id="id" value=""></td>
             <td><input type="text" name="compra_id" id="compra_id" value=""></td>
             <td> 
                 <select name="articulo_id" id="articulo_id">
@@ -11,7 +11,7 @@
                                    . $articulo["nombre"] ."
                             </option>";
                     } ?>
-    </select>
+                </select>
             </td>
             <td> <input type="number" name="cantidad" id="cantidad" > </td>
             <td><input type="number" name="precio_unitario" id="precio_unitario"> </td>

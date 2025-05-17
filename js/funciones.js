@@ -78,24 +78,46 @@ function enviardatos(formId, url, divId) {
         document.getElementById("resultados").innerHTML = data;
     });
 }
-
-function editar(id,tb){
-    datos = new FormData();
-    sql = "select * from "+ tb + " where id = " + id;
-    datos.append("sql",sql);
-    fetch("/"+tb+"/registro.php", {
+function editar(id, tb, formId = tb) {
+    let datos = new FormData();
+    let sql = "select * from " + tb + " where id = " + id;
+    datos.append("sql", sql);
+    fetch("/" + tb + "/registro.php", {
         body: datos,
-       method: "post"})
+        method: "post"
+    })
     .then(response => response.json())
     .then(data => { 
-        registro = data;
-        datos = new FormData(document.getElementById("compras"));
-        for (const key of datos.keys()) {
-            campo = document.getElementById(key);
-            campo.value = registro[key];
-          }
+        let registro = data;
+        let form = document.getElementById(formId);
+        let formData = new FormData(form);
+        for (const key of formData.keys()) {
+            let campo = document.getElementById(key);
+            if (campo && registro[key] !== undefined) {
+                campo.value = registro[key];
+            }
+        }
     });         
 }
+
+// funcion editar original
+// function editar(id,tb){
+//     datos = new FormData();
+//     sql = "select * from "+ tb + " where id = " + id;
+//     datos.append("sql",sql);
+//     fetch("/"+tb+"/registro.php", {
+//         body: datos,
+//        method: "post"})
+//     .then(response => response.json())
+//     .then(data => { 
+//         registro = data;
+//         datos = new FormData(document.getElementById("compras"));
+//         for (const key of datos.keys()) {
+//             campo = document.getElementById(key);
+//             campo.value = registro[key];
+//           }
+//     });         
+// }
 
 // funcion editar original
 //  function editar(id,nombre){

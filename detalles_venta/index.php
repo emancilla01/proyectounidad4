@@ -3,7 +3,7 @@
 // include_once "../db/db.php";
 // $dbventas = new db();
 // $dbventas->conectar();
-$sql = "SELECT * FROM detalles_compra"; 
+$sql = "SELECT * FROM detalles_venta"; 
 $datos_d = $dbventas->obtenerRegistros($sql);
 
 $sql = "SELECT * FROM articulos"; 

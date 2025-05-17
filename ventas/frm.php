@@ -21,15 +21,15 @@
 
         <label for="tipo_pago">Tipo de Pago :</label>
         <select name="tipo_pago" id="tipo_pago">
-            <option value="1">Contado</option>
-            <option value="2">Credito</option>
+            <option value="contado">Contado</option>
+            <option value="credito">Credito</option>
         </select>
 
         <label for="estado">Estado :</label>
         <select name="estado" id="estado">
-            <option value="1">Pendiente</option>
-            <option value="2">Pagado</option>
-            <option value="3">Cancelado</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="pagado">Pagado</option>
+            <option value="cancelado">Cancelado</option>
         </select>
         
         <label for="saldo_pendiente">Saldo Pendiente :</label>

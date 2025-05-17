@@ -6,6 +6,11 @@ $dbventas->conectar();
 
 $sql = "SELECT * FROM ventas";
 $datos = $dbventas->obtenerRegistros($sql);
+
+$sqlUsuarios = "SELECT * FROM usuarios";
+$usuarios = $dbventas->obtenerRegistros($sqlUsuarios);
+$dbventas->desconectar();
+
 ?>
 
 

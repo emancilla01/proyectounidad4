@@ -7,12 +7,12 @@
 
         <label for="proveedor_id">Id Proveedor :</label>
         <select name="proveedor_id" id="proveedor_id">
-        <?php foreach ($proveedores as $proveedor) { 
-            echo "<option value='" . $proveedor["id"] . "'>" 
-                                   . $proveedor["nombre"] ."
-                  </option>";
-         } ?>
-    </select>
+            <?php foreach ($proveedores as $proveedor) { 
+                echo "<option value='" . $proveedor["id"] . "'>" 
+                                    . $proveedor["nombre"] ."
+                    </option>";
+            } ?>
+        </select>
 
         <label for="total">Total :</label>
         <input type="text" name="total" id="total">

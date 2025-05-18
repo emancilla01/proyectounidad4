@@ -5,7 +5,9 @@
   $proveedores->conectar();
 
   $id=$_REQUEST['id'];
-  $sql = "DELETE FROM proveedores WHERE id='$id'";
+  $tb=$_REQUEST['tb'];
+
+  $sql = "DELETE FROM $tb WHERE id='$id'";
   $proveedores->eliminar($sql);
 
   $proveedores->desconectar();

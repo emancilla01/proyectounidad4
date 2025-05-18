@@ -4,24 +4,28 @@
   $pagos->conectar();
 
   $id=$_REQUEST['id'];
-  $idventa=$_REQUEST['idventa'];
-  $montopagado=$_REQUEST['montopagado'];
-  $metodopago=$_REQUEST['metodopago'];
-  $fechapago=$_REQUEST['fechapago'];
-  $saldorest=$_REQUEST['saldorest'];
-  $interesgenerado=$_REQUEST['interesgenerado'];
+  $venta_id=$_REQUEST['venta_id'];
+  $monto_pagado=$_REQUEST['monto_pagado'];
+  $metodo_pago=$_REQUEST['metodo_pago'];
+  $fecha_pago=$_REQUEST['fecha_pago'];
+  $saldo_restante=$_REQUEST['saldo_restante'];
+  $interes_generado=$_REQUEST['interes_generado'];
   
   if($id != ""){
-    $sql = "UPDATE pagos SET venta_id = '$idventa', montopagado = '$montopagado', 
-        metodopago = '$metodopago', fechapago = '$fechapago', saldorest = '$saldorest',
-        interesgenerado = '$interesgenerado'
-        WHERE id = '$id'";
+    $sql = "UPDATE pagos 
+            SET venta_id = '$venta_id', 
+                monto_pagado = '$monto_pagado', 
+                metodo_pago = '$metodo_pago', 
+                fecha_pago = '$fecha_pago', 
+                saldo_restante = '$saldo_restante',
+                interes_generado = '$interes_generado'
+            WHERE id = '$id'";
     $pagos->actualizar($sql);
     echo "Registro actualizado correctamente";
     exit();
   }
   $sql = "INSERT INTO pagos (venta_id, monto_pagado, metodo_pago, fecha_pago, saldo_restante, interes_generado) 
-                VALUES ('$idventa', '$montopagado', '$metodopago', '$fechapago', '$saldorest', '$interesgenerado')";
+                VALUES ('$venta_id', '$monto_pagado', '$metodo_pago', '$fecha_pago', '$saldo_restante', '$interes_generado')";
   $pagos->insertar($sql);
   
   $pagos->desconectar();

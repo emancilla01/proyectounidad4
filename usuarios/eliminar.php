@@ -5,7 +5,10 @@
   $usuarios->conectar();
 
   $id=$_REQUEST['id'];
-  $sql = "DELETE FROM usuarios WHERE id='$id'";
+  $tb=$_REQUEST['tb'];
+
+  $sql = "DELETE FROM $tb WHERE id='$id'";
+  
   $usuarios->eliminar($sql);
 
   $usuarios->desconectar();

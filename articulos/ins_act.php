@@ -12,9 +12,9 @@
   if($id != ""){
     $sql = "UPDATE articulos 
             SET nombre='$nombre', 
-            descripcion = '$descripcion', 
-            precio = '$precio',
-            stock = '$stock' 
+                descripcion = '$descripcion', 
+                precio = '$precio',
+                stock = '$stock' 
             WHERE id = '$id'"; 
     $articulos->actualizar($sql);
     echo "Registro actualizado correctamente";

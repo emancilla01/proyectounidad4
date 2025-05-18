@@ -1,14 +1,6 @@
-<?php
-
-
-
-?>
-
-
 <article>
-
     <h2>Usuarios</h2>
-    <form action="/index.html" method="post" id="frm" onsubmit="return false;">
+    <form action="/index.html" method="post" id="usuarios" onsubmit="return false;">
         <label for="id">Id:</label>
         <input type="text" name="id" id="id">
 
@@ -22,14 +14,7 @@
         <input type="password" name="contraseña" id="contraseña">
         
         <label for=""></label>
-        <button onclick="enviardatos('frm', '/usuarios/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>  
-
-        
-
-    </form>
-    
-
-
-    
+        <button onclick="enviardatos('usuarios', '/usuarios/ins_act.php', 'contenedor1')">Grabar</button>
+        <button onclick="">Consultar</button>
+    </form>    
 </article>

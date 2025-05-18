@@ -12,7 +12,7 @@
     $sql = "UPDATE proveedores 
             SET nombre = '$nombre', 
             contacto = '$contacto', 
-            direccion = '$direccion',
+            direccion = '$direccion'
             WHERE id = '$id'"; 
     $proveedores->actualizar($sql);
     echo "Registro actualizado correctamente";

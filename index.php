@@ -20,7 +20,7 @@
                 <li><a href="#" onclick="ver('/compras/index.php')">Compras</a></li>
                 <li><a href="#" onclick="ver('/ventas/index.php')">Ventas</a></li>
                 <li><a href="#" onclick="ver('/pagos/index.php')">Pagos</a></li>
-                <li><a href="#" onclick="ver('/notificaciones/notificaciones.php')">Notificaciones</a></li>                
+                <li><a href="#" onclick="ver('/notificaciones/index.php')">Notificaciones</a></li>                
             </ul>
         </aside>
         <section>

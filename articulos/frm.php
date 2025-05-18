@@ -1,7 +1,6 @@
 <article>
-
     <h2>Articulos</h2>
-    <form action="/index.html" method="post" id="frm" onsubmit="return false;">
+    <form action="/index.html" method="post" id="articulos" onsubmit="return false;">
     <label for="id">Id:</label>
     <input type="text" name="id" id="id">
 
@@ -15,19 +14,10 @@
     <input type="number" name="precio" id="precio">
 
     <label for="stock">Stock :</label>
-    <input type="number" name="stock" id="stock">
-    
-    <!-- <label for=""></label>
-    <input type="text"> -->
-     
+    <input type="number" name="stock" id="stock">     
     
     <label></label>
-    <button onclick="enviardatos('frm', '/articulos/ins_act.php', 'contenedor1')">Grabar</button>
+    <button onclick="enviardatos('articulos', '/articulos/ins_act.php', 'contenedor1')">Grabar</button>
     <button onclick="">Consultar</button>
-
-
-    </form>
-
-
-    
+    </form>    
 </article>

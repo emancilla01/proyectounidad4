@@ -5,7 +5,9 @@
   $articulos->conectar();
 
   $id=$_REQUEST['id'];
-  $sql = "DELETE FROM articulos WHERE id='$id'";
+  $tb=$_REQUEST['tb'];
+
+  $sql = "DELETE FROM $tb WHERE id='$id'";
   $articulos->eliminar($sql);
 
   $articulos->desconectar();

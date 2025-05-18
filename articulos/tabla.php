@@ -16,9 +16,12 @@
             <td><?php echo $dato['descripcion'];?></td>
             <td><?php echo $dato['precio'];?></td>
             <td><?php echo $dato['stock'];?></td>
-            <td><button onclick="editar(<?php echo $dato['id'];?>,'<?php echo $dato['nombre'];?>')" >Editar</button></td>
-            <!-- <td><button onclick="eliminar(<?php echo $dato['id'];?>)" >Eliminar</button></td> -->
-            <td><button onclick="eliminar(<?php echo $dato['id']; ?>, '/articulos/eliminar.php', 'contenedor1')">Eliminar</button></td>
+
+            <td><button onclick="  editar('<?php echo $dato['id']; ?>','<?php echo 'articulos'; ?>')">Editar</button></td>
+            <td><button onclick="eliminar2('<?php echo $dato['id']; ?>','<?php echo 'articulos'; ?>')">Eliminar</button></td>
+
+            <!-- <td><button onclick="editar(<?php echo $dato['id'];?>,'<?php echo $dato['nombre'];?>')" >Editar</button></td>
+            <td><button onclick="eliminar(<?php echo $dato['id']; ?>, '/articulos/eliminar.php', 'contenedor1')">Eliminar</button></td> -->
         </tr>
         <?php } ?>
     </table>

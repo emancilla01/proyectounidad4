@@ -161,5 +161,11 @@ function eliminar2(id,tb) {
 
 function buscarPorId() {
     var id = document.getElementById('buscar_id').value;
-    window.location.href = "?buscar_id=" + id;
+    fetch('/articulos/tabla.php?buscar_id=' + encodeURIComponent(id))
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('contenedor3').innerHTML = html;
+            // Mantén el valor en el input después de la búsqueda
+            document.getElementById('buscar_id').value = id;
+        });
 }

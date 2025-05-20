@@ -1,5 +1,19 @@
+<?php
+if (!isset($datos)) {
+    include_once "../db/db.php";
+    $articulos = new db();
+    $articulos->conectar();
 
-    <table>
+    $where = "";
+    if (isset($_GET['buscar_id']) && $_GET['buscar_id'] != "") {
+        $id = intval($_GET['buscar_id']);
+        $where = " WHERE id = $id";
+    }
+    $sql = "SELECT * FROM articulos $where";
+    $datos = $articulos->obtenerRegistros($sql);
+}
+?>
+<table>
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -7,8 +21,7 @@
             <th>Precio</th>
             <th>Stock</th>
         </tr>
-        <input type="text" id="buscar_id" placeholder="Buscar por ID">
-        <button onclick="buscarPorId()">Buscar</button>
+        
         <?php
             foreach ($datos as $dato) { ?>              
            

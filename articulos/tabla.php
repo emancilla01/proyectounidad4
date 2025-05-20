@@ -7,6 +7,8 @@
             <th>Precio</th>
             <th>Stock</th>
         </tr>
+        <input type="text" id="buscar_id" placeholder="Buscar por ID">
+        <button onclick="buscarPorId()">Buscar</button>
         <?php
             foreach ($datos as $dato) { ?>              
            

@@ -158,3 +158,8 @@ function eliminar2(id,tb) {
 //     .then(response => response.text())
 //     .then(data => {cont3.innerHTML = data;})
 //  }
+
+function buscarPorId() {
+    var id = document.getElementById('buscar_id').value;
+    window.location.href = "?buscar_id=" + id;
+}

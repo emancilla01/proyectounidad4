@@ -15,6 +15,5 @@
         
         <label for=""></label>
         <button onclick="enviardatos('usuarios', '/usuarios/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>
     </form>    
 </article>

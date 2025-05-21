@@ -1,5 +1,4 @@
 <article>
-
     <h2>Compras</h2>
     <form action="/index.html" method="post" id="compras" onsubmit="return false;">
         <label for="id">Id:</label>
@@ -20,12 +19,8 @@
         <label for="fecha">fecha :</label>
         <input type="datetime-local" name="fecha" id="fecha">
     
-    
-     
-    
         <label></label>
         <button onclick="enviardatos('compras', '/compras/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>
     </form>
 
     <!-- <h2>Detalle de Compras</h2> -->

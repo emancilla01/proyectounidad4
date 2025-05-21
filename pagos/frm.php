@@ -1,5 +1,4 @@
 <article>
-
     <h2>Pagos</h2>
     <form action="/index.html" method="post" id="pagos" onsubmit="return false;"> 
         
@@ -37,7 +36,5 @@
                 
         <label for=""></label>
         <button onclick="enviardatos('pagos', '/pagos/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>         
-
     </form>    
 </article>

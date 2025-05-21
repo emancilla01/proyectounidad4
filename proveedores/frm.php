@@ -1,5 +1,4 @@
 <article>
-
     <h2>Proveedores</h2>
     <form action="/index.html" method="post" id="proveedores" onsubmit="return false;">
         <label for="id">Id:</label>
@@ -16,11 +15,5 @@
         
         <label for=""></label>
         <button onclick="enviardatos('proveedores', '/proveedores/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>
-      
-
     </form>
-
-
-    
 </article>

@@ -159,13 +159,26 @@ function eliminar2(id,tb) {
 //     .then(data => {cont3.innerHTML = data;})
 //  }
 
-function buscarPorId() {
-    var id = document.getElementById('buscar_id').value;
-    fetch('/articulos/tabla.php?buscar_id=' + encodeURIComponent(id))
+
+function buscarPorColumna(tabla) {
+    var columna = document.getElementById('buscar_columna').value;
+    var valor = document.getElementById('buscar_valor').value;
+    fetch('/' + tabla + '/tabla.php?columna=' + encodeURIComponent(columna) + '&valor=' + encodeURIComponent(valor))
         .then(response => response.text())
         .then(html => {
             document.getElementById('contenedor3').innerHTML = html;
-            // Mantén el valor en el input después de la búsqueda
-            document.getElementById('buscar_id').value = id;
+            document.getElementById('buscar_valor').value = valor;
         });
 }
+
+// original searchbar
+// function buscarPorId() {
+//     var id = document.getElementById('buscar_id').value;
+//     fetch('/articulos/tabla.php?buscar_id=' + encodeURIComponent(id))
+//         .then(response => response.text())
+//         .then(html => {
+//             document.getElementById('contenedor3').innerHTML = html;
+//             // Mantén el valor en el input después de la búsqueda
+//             document.getElementById('buscar_id').value = id;
+//         });
+// }

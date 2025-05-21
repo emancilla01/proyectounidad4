@@ -20,14 +20,18 @@ $dbventas->desconectar();
     <h3>Compras</h3>
     <?php include_once "../compras/frm.php"; ?>
     
-    <!-- <div>
-         
-    </div> -->
     
-    <div id="contenedor3">
-        <?php include_once "../detalles_compra/index.php"; ?>
-        <hr>
-        <hr>
+    <?php include_once "../detalles_compra/index.php"; ?>
+    <hr>        
+    <hr>
+    <select id="buscar_columna">
+                <option value="id">ID</option>
+                <option value="proveedor_id">Id Proveedor</option>    
+    </select>
+    <input type="text" id="buscar_valor" placeholder="Buscar...">
+    <button type="button" onclick="buscarPorColumna('compras')">Buscar</button>
+    
+    <div id="contenedor3">        
         <?php include_once "../compras/tabla.php"; ?>
     </div>
 </div>

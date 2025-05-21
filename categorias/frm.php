@@ -1,6 +1,5 @@
 
 <article>
-
     <h2>Categorias</h2>
     <form action="/index.html" method="post" id="categorias" onsubmit="return false;"> 
         
@@ -12,11 +11,5 @@
                 
         
         <button onclick="enviardatos('categorias', '/categorias/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button> 
-        
-
-    </form>
-
-
-    
+    </form>    
 </article>

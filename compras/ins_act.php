@@ -12,7 +12,7 @@
     $sql = "UPDATE compras 
             SET proveedor_id = '$proveedor_id',
                 total = '$total', 
-                fecha = '$fecha',
+                fecha = '$fecha'
             WHERE id = '$id'"; 
     $compras->actualizar($sql);
     echo "Registro actualizado correctamente";

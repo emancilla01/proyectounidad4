@@ -46,7 +46,5 @@
          
         <label></label>
         <button onclick="enviardatos('ventas', '/ventas/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>
     </form>
-        
 </article>

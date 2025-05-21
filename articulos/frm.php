@@ -18,6 +18,5 @@
     
     <label></label>
     <button onclick="enviardatos('articulos', '/articulos/ins_act.php', 'contenedor1')">Grabar</button>
-    <button onclick="">Consultar</button>
     </form>    
 </article>

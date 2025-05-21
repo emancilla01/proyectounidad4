@@ -1,5 +1,4 @@
 <article>
-
     <h2>Notificaciones</h2>
     <form action="/index.html" method="post" id="notificaciones" onsubmit="return false;"> 
         
@@ -46,7 +45,5 @@
                 
         <label for=""></label>
         <button onclick="enviardatos('notificaciones', '/notificaciones/ins_act.php', 'contenedor1')">Grabar</button>
-        <button onclick="">Consultar</button>         
-
     </form>    
 </article>

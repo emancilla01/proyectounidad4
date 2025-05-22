@@ -10,8 +10,9 @@
   $dbventas->eliminar($sql);
 
   
-  $sql = "SELECT * FROM $tb"; 
-  $datos2 = $dbventas->obtenerRegistros($sql);
-  include_once "../$tb/tabla.php";
+  // $sql = "SELECT * FROM $tb"; 
+  // $datos2 = $dbventas->obtenerRegistros($sql);
+  // include_once "../$tb/tabla.php";
   
   $dbventas->desconectar();
+?>

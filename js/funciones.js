@@ -64,6 +64,49 @@ function enviardatos(formId, url, divId) {
 //     .then(data => {cont1.innerHTML = data;})
     
 //  }
+
+function enviardatos_d(url, formId = "frm_detalle", tb = "") {
+    let form = document.getElementById(formId);
+    if (!form) {
+        alert("No se encontró el formulario: " + formId);
+        return;
+    }
+    let datos = new FormData(form);
+    fetch(url, {
+        method: "POST",
+        body: datos
+    })
+    .then(() => {
+        // Detecta si es detalles_compra o detalles_venta
+        let idField = tb === "detalles_venta" ? "venta_id" : "compra_id";
+        let detallesCarpeta = tb === "detalles_venta" ? "detalles_venta" : "detalles_compra";
+        let idValue = form.querySelector(`[name="${idField}"]`).value;
+        fetch("/" + detallesCarpeta + "/index.php?" + idField + "=" + encodeURIComponent(idValue))
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById("contenedorDetalles").innerHTML = html;
+            });
+    });
+}
+
+// funcion enviardatosd original
+// function enviardatos_d(url) {
+//     let form = document.getElementById("frm_detalle");
+//     let datos = new FormData(form);
+//     fetch(url, {
+//         method: "POST",
+//         body: datos
+//     })
+//     .then(() => {
+//         let compra_id = document.getElementById("compra_id").value;
+//         fetch("/detalles_compra/index.php?id_compra=" + encodeURIComponent(compra_id))
+//             .then(r => r.text())
+//             .then(html => {
+//                 document.getElementById("contenedorDetalles").innerHTML = html;
+//             });
+//     });
+// }
+
     function peticiones(accion, url = "/categorias/frm.php", formId = "frm") {
     const form = document.getElementById(formId);
     const formData = new FormData(form);
@@ -78,6 +121,12 @@ function enviardatos(formId, url, divId) {
         document.getElementById("resultados").innerHTML = data;
     });
 }
+// Mapeo de tabla principal a carpeta de detalles
+const detallesMap = {
+    compras: "detalles_compra",
+    ventas: "detalles_venta"
+};
+
 function editar(id, tb, formId = tb) {
     let datos = new FormData();
     let sql = "select * from " + tb + " where id = " + id;
@@ -90,15 +139,73 @@ function editar(id, tb, formId = tb) {
     .then(data => { 
         let registro = data;
         let form = document.getElementById(formId);
-        let formData = new FormData(form);
-        for (const key of formData.keys()) {
-            let campo = document.getElementById(key);
-            if (campo && registro[key] !== undefined) {
+        if (!form) return;
+        // Llenar todos los campos del formulario según el name
+        Object.keys(registro).forEach(key => {
+            let campo = form.querySelector('[name="' + key + '"]');
+            if (campo) {
                 campo.value = registro[key];
+            }
+        });
+        // Si necesitas cargar detalles, aquí puedes agregar tu lógica extra
+        const detallesMap = {
+            compras: "detalles_compra",
+            ventas: "detalles_venta"
+        };
+        const detallesCarpeta = detallesMap[tb];
+        if (detallesCarpeta) {
+            let detallesDiv = document.getElementById("contenedorDetalles");
+            if (detallesDiv) {
+                let param = tb === "compras" ? "id_compra" : "venta_id";
+                fetch("/" + detallesCarpeta + "/index.php?" + param + "=" + encodeURIComponent(id))
+                    .then(res => res.text())
+                    .then(html => {
+                        detallesDiv.innerHTML = html;
+                        detallesDiv.style.display = "block";
+                        const ventaIdInput = document.getElementById('venta_id');
+if (ventaIdInput) ventaIdInput.value = id;
+                    });
             }
         }
     });         
 }
+
+// funcion editar pre 21/5
+// function editar(id, tb, formId = tb) {
+//     let datos = new FormData();
+//     let sql = "select * from " + tb + " where id = " + id;
+//     datos.append("sql", sql);
+//     fetch("/" + tb + "/registro.php", {
+//         body: datos,
+//         method: "post"
+//     })
+//     .then(response => response.json())
+//     .then(data => { 
+//         let registro = data;
+//         let form = document.getElementById(formId);
+//         let formData = new FormData(form);
+//         for (const key of formData.keys()) {
+//             let campo = document.getElementById(key);
+//             if (campo && registro[key] !== undefined) {
+//                 campo.value = registro[key];
+//             }
+//         }
+//      const detallesCarpeta = detallesMap[tb];
+// if (detallesCarpeta) {
+//     let detallesDiv = document.getElementById("contenedorDetalles");
+//     if (detallesDiv) {
+//         // Ajusta el parámetro según tu BD
+//         let param = tb === "compras" ? "id_compra" : "id_venta";
+//         fetch("/" + detallesCarpeta + "/index.php?" + param + "=" + encodeURIComponent(id))
+//             .then(res => res.text())
+//             .then(html => {
+//                 detallesDiv.innerHTML = html;
+//                 detallesDiv.style.display = "block";
+//             });
+//     }
+// }
+//     });         
+// }
 
 // funcion editar original
 // function editar(id,tb){
@@ -140,6 +247,36 @@ function eliminar2(id,tb) {
         .then(response => response.text())
         .then(data => { cont3.innerHTML = data });
 }
+
+function eliminarDetalle(id, tb = "detalles_compra") {
+    const idField = tb === "detalles_venta" ? "venta_id" : "compra_id";
+    fetch("/" + tb + "/eliminar.php?id=" + id + "&tb=" + tb)
+        .then(response => response.text())
+        .then(() => {
+            let idValue = document.getElementById(idField).value;
+            fetch("/" + tb + "/index.php?" + idField + "=" + encodeURIComponent(idValue))
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById("contenedorDetalles").innerHTML = html;
+                });
+        });
+}
+
+
+
+// funcion eliminardet original
+// function eliminarDetalle(id) {
+//     fetch("/detalles_compra/eliminar.php?id=" + id + "&tb=detalles_compra")
+//         .then(response => response.text())
+//         .then(() => {
+//             let compra_id = document.getElementById("compra_id").value;
+//             fetch("/detalles_compra/index.php?id_compra=" + encodeURIComponent(compra_id))
+//                 .then(r => r.text())
+//                 .then(html => {
+//                     document.getElementById("contenedorDetalles").innerHTML = html;
+//                 });
+//         });
+// }
 
 //PRUEBA FUNCION CONSULTAR TABLA
 // function consultarTabla(url, divId) {

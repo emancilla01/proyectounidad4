@@ -14,10 +14,12 @@ $dbventas->desconectar();
 ?>
 
 
-
+<div>
 <?php include_once "../ventas/frm.php"; ?>
 
-<?php include_once "../detalles_venta/index.php"; ?>
+<div id="contenedorDetalles"></div>
+
+<!-- <?php include_once "../detalles_venta/index.php"; ?> -->
 <hr>
 <hr>
 <select id="buscar_columna">
@@ -31,4 +33,5 @@ $dbventas->desconectar();
     <button type="button" onclick="buscarPorColumna('ventas')">Buscar</button>
 <div id="contenedor3">    
     <?php include_once "../ventas/tabla.php"; ?>
+</div>
 </div>

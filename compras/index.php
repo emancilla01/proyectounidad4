@@ -17,11 +17,11 @@ $dbventas->desconectar();
 
 
 <div>
-    <h3>Compras</h3>
+    <!-- <h3>Compras</h3> -->
     <?php include_once "../compras/frm.php"; ?>
     
-    
-    <?php include_once "../detalles_compra/index.php"; ?>
+    <div id="contenedorDetalles"></div>
+    <!-- <?php include_once "../detalles_compra/index.php"; ?> -->
     <hr>        
     <hr>
     <select id="buscar_columna">

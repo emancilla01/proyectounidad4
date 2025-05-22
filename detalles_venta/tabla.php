@@ -1,4 +1,4 @@
-<table>
+<!-- <table>
     <tr>
         <th>ID</th>
         <th>Nombre</th>
@@ -15,4 +15,4 @@
         <td><button onclick="eliminar('<?php echo $dato['id']; ?>','<?php echo 'compra_det'; ?>')">Eliminar</button></td>
     </tr>
     <?php } ?>
-</table>
+</table> -->

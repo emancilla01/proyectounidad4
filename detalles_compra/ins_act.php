@@ -12,7 +12,8 @@
 
   if ($id != "") {
     $sql = "UPDATE detalles_compra 
-            SET cantidad = '$cantidad', 
+            SET articulo_id = '$articulo_id',
+            cantidad = '$cantidad', 
             precio_unitario = '$precio_unitario', 
             subtotal = cantidad * precio_unitario  
             WHERE id = $id";

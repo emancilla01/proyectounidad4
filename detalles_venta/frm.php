@@ -1,18 +1,16 @@
+<?php
+if (!isset($datos_d) || !is_array($datos_d)) {
+    $datos_d = [];
+}
+?>
 <form action="" method="post" id="frm_detalle" onsubmit="return false;">
     <table>
         <tr>
             <td><input type="text" name="id" id="id" value=""></td>
-
-            <td> 
-                <select name="venta_id" id="venta_id">
-                    <option value="0" >Seleccionar Id de Venta</option>
-                    <?php foreach ($datos_v as $dato_v) { 
-                        echo "<option value='" . $dato_v["id"] . "'>" 
-                                   . $dato_v["id"] ."
-                            </option>";
-                    } ?>
-                </select>
-            </td>
+<td>
+    <input type="text" name="venta_id" id="venta_id" value="">
+</td>
+            
             <td> 
                 <select name="articulo_id" id="articulo_id">
                     <option value="0" >Seleccionar Articulo</option>
@@ -26,7 +24,7 @@
             <td> <input type="number" name="cantidad" id="cantidad" > </td>
             <td><input type="number" name="precio_unitario" id="precio_unitario"> </td>
             <td><input type="number" name="subtotal" id="subtotal" style="width:70px"></td>
-            <td><button onclick="enviardatos_d('/detalles_compra/ins_act.php')">Grabar</button></td>
+            <td><button onclick="enviardatos_d('/detalles_venta/ins_act.php','frm_detalle','detalles_venta')">Grabar</button></td>
         </tr>
         <tr>
             <th><label for="">id____:</label></th>
@@ -45,8 +43,8 @@
             <td> <?php echo $dato['cantidad']; ?></td>
             <td> <?php echo $dato['precio_unitario']; ?></td>
             <td> <?php echo $dato['subtotal']; ?></td>
-            <td><button onclick="editar('<?php echo $dato['id']; ?>','<?php echo 'detalles_venta'; ?>')">Editar</button></td>
-            <td><button onclick="eliminar('<?php echo $dato['id']; ?>','<?php echo 'detalles_venta'; ?>')">Eliminar</button></td>
+            <td><button onclick="editar('<?php echo $dato['id']; ?>','<?php echo 'detalles_venta'; ?>','frm_detalle')">Editar</button></td>
+            <td><button onclick="eliminarDetalle('<?php echo $dato['id']; ?>','detalles_venta')">Eliminar</button></td>
         </tr>
         <?php } ?>
     </table>

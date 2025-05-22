@@ -1,8 +1,13 @@
+<?php
+if (!isset($datos_d) || !is_array($datos_d)) {
+    $datos_d = [];
+}
+?>
 <form action="" method="post" id="frm_detalle" onsubmit="return false;">
     <table>
         <tr>
             <td><input type="text" name="id" id="id" value=""></td>
-            <td><input type="text" name="compra_id" id="compra_id" value=""></td>
+            <td><input type="text" name="compra_id" id="compra_id" value="<?php echo isset($id_compra) ? $id_compra : ''; ?>" readonly></td>
             <td> 
                 <select name="articulo_id" id="articulo_id">
                     <option value="0" >Seleccionar Articulo</option>
@@ -35,8 +40,8 @@
             <td> <?php echo $dato['cantidad']; ?></td>
             <td> <?php echo $dato['precio_unitario']; ?></td>
             <td> <?php echo $dato['subtotal']; ?></td>
-            <td><button onclick="editar('<?php echo $dato['id']; ?>','<?php echo 'detalles_compra'; ?>')">Editar</button></td>
-            <td><button onclick="eliminar('<?php echo $dato['id']; ?>','<?php echo 'detalles_compra'; ?>')">Eliminar</button></td>
+            <td><button onclick="editar('<?php echo $dato['id']; ?>','<?php echo 'detalles_compra'; ?>','frm_detalle')">Editar</button></td>
+            <td><button type="button" onclick="eliminarDetalle('<?php echo $dato['id']; ?>','detalles_compra')">Eliminar</button></td>
         </tr>
         <?php } ?>
     </table>

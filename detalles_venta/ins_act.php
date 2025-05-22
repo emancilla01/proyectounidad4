@@ -4,7 +4,7 @@
   $dbventas->conectar();
     
   $id=$_REQUEST['id'];
-  $compra_id=$_REQUEST['venta_id'];
+  $venta_id=$_REQUEST['venta_id'];
   $articulo_id=$_REQUEST['articulo_id'];
   $cantidad=$_REQUEST['cantidad'];
   $precio_unitario=$_REQUEST['precio_unitario'];
@@ -12,9 +12,10 @@
 
   if ($id != "") {
     $sql = "UPDATE detalles_venta 
-            SET cantidad = '$cantidad', 
-            precio_unitario = '$precio_unitario', 
-            subtotal = cantidad * precio_unitario  
+            SET articulo_id = '$articulo_id',
+                cantidad = '$cantidad', 
+                precio_unitario = '$precio_unitario', 
+                subtotal = cantidad * precio_unitario  
             WHERE id = $id";
     $dbventas->actualizar($sql);
   }

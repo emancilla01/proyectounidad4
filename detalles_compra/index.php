@@ -1,4 +1,3 @@
-
 <?php
 include_once "../db/db.php";
 $dbventas = new db();
@@ -16,5 +15,4 @@ $dbventas->desconectar();
 <div id="contenedor_detalle">
     <h2>Detalle de Compras</h2>
     <?php include_once "../detalles_compra/frm.php"; ?>   
-
 </div>

@@ -1,4 +1,3 @@
-
 <?php
 include_once "../db/db.php";
 $dbventas = new db();
@@ -9,10 +8,8 @@ $venta_id = isset($_GET['venta_id']) ? intval($_GET['venta_id']) : 0;
 $sql = "SELECT * FROM detalles_venta WHERE venta_id = $venta_id"; 
 $datos_d = $dbventas->obtenerRegistros($sql);
 
-//17 may
 $sql = "SELECT * FROM ventas";
 $datos_v = $dbventas->obtenerRegistros($sql);
-// 17 may
 
 $sql = "SELECT * FROM articulos"; 
 $articulos= $dbventas->obtenerRegistros($sql);

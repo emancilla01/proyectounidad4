@@ -34,9 +34,5 @@
   $dbventas->insertar($sql);
   }
 
-  // $sql = "SELECT * FROM detalles_compra"; 
-  // $datos_d = $dbventas->obtenerRegistros($sql);
-  // include_once "../detalles_compra/tabla.php";
-
   $dbventas->desconectar();
 ?>

@@ -7,9 +7,9 @@ if (!isset($datos_d) || !is_array($datos_d)) {
     <table>
         <tr>
             <td><input type="text" name="id" id="id" value=""></td>
-<td>
-    <input type="text" name="venta_id" id="venta_id" value="">
-</td>
+            <td>
+                <input type="text" name="venta_id" id="venta_id" value="">
+            </td>
             
             <td> 
                 <select name="articulo_id" id="articulo_id">

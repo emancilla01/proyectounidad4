@@ -1,5 +1,4 @@
 <?php
-
   include_once "../db/db.php";
   $pagos = new db();
   $pagos->conectar();

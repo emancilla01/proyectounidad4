@@ -4,9 +4,6 @@
         <label for="id">Id :</label>
         <input type="text" name="id" id="id">
 
-        <!-- <label for="usuario_id">Id Usuario :</label>
-        <input type="text" name="usuario_id" id="usuario_id"> -->
-
         <label for="usuario_id">Id Usuario :</label>
         <select name="usuario_id" id="usuario_id">
             <?php foreach ($usuarios as $usuario) { 

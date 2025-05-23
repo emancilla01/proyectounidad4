@@ -1,5 +1,4 @@
 <?php
-
   include_once "../db/db.php";
   $dbventas = new db();
   $dbventas->conectar();

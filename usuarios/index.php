@@ -8,8 +8,6 @@ $sql = "SELECT * FROM usuarios";
 $datos = $usuarios->obtenerRegistros($sql);
 ?>
 
-
-
 <?php include_once "../usuarios/frm.php"; ?>
 
 <hr>

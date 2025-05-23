@@ -6,11 +6,11 @@ if (!isset($datos)) {
 
     $where = "";
     if (isset($_GET['columna']) && isset($_GET['valor']) && $_GET['valor'] !== "") {
-        $columna = preg_replace('/[^a-zA-Z0-9_]/', '', $_GET['columna']); // Seguridad básica
+        $columna = preg_replace('/[^a-zA-Z0-9_]/', '', $_GET['columna']); 
         $valor = htmlspecialchars($_GET['valor']);
         $where = " WHERE $columna LIKE '%$valor%'";
     }
-    $sql = "SELECT * FROM notificaciones $where"; // Cambia 'articulos' por la tabla correspondiente
+    $sql = "SELECT * FROM notificaciones $where"; 
     $datos = $db->obtenerRegistros($sql);
 }
 ?>
@@ -38,11 +38,6 @@ if (!isset($datos)) {
 
             <td><button onclick="  editar('<?php echo $dato['id']; ?>','<?php echo 'notificaciones'; ?>')">Editar</button></td>
             <td><button onclick="eliminar2('<?php echo $dato['id']; ?>','<?php echo 'notificaciones'; ?>')">Eliminar</button></td>
-
-            <!-- <td><button onclick="editar(<?php echo addslashes ($dato['id']);?>,'<?php echo addslashes ($dato['idventa']);?>', 
-            '<?php echo addslashes ($dato['montopagado']);?>', '<?php echo addslashes ($dato['metodopago']);?>', '<?php echo addslashes ($dato['fechapago']);?>', 
-            '<?php echo addslashes ($dato['saldorest']);?>', '<?php echo addslashes ($dato['interesgenerado']);?>' )" >Editar</button></td>
-            <td><button onclick="eliminar(<?php echo $dato['id']; ?>, '/pagos/eliminar.php', 'contenedor1')" >Eliminar</button></td> -->
         </tr>
         <?php } ?>
     </table>

@@ -1,5 +1,4 @@
 <?php
-
   include_once "../db/db.php";
   $notificaciones = new db();
   $notificaciones->conectar();

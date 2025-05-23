@@ -10,6 +10,7 @@
   $mensaje=$_REQUEST['mensaje'];
   $fecha_envio=$_REQUEST['fecha_envio'];
   $estado=$_REQUEST['estado'];  
+  
   if($id != ""){
     $sql = "UPDATE notificaciones 
             SET usuario_id = '$usuario_id',

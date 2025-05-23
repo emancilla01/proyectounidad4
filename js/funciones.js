@@ -30,7 +30,6 @@ function mostrarUsuario() {
             });
         });
 }
-
 // Llama a la función cuando cargue la página principal
 window.addEventListener('DOMContentLoaded', mostrarUsuario);
 function ver(url) {
@@ -39,8 +38,6 @@ function ver(url) {
         .then (response => response.text())
         .then (data => {div1.innerHTML = data });
 }
-
-//funcion prueba
 function enviardatos(formId, url, divId) {
     let cont = document.querySelector("#" + divId);
     let datos = new FormData(document.getElementById(formId));
@@ -51,20 +48,6 @@ function enviardatos(formId, url, divId) {
     .then(response => response.text())
     .then(data => { cont.innerHTML = data; });
 }
-
-// funcion original de enviardatos
-// function enviardatos() {
-//     cont1 = document.querySelector("#contenedor1");
-//     datos = new FormData(document.getElementById("frm"));
-//     fetch("/categorias/ins_act.php", {
-//             body: datos , 
-//             method: "post"
-//         })
-//     .then(response => response.text())
-//     .then(data => {cont1.innerHTML = data;})
-    
-//  }
-
 function enviardatos_d(url, formId = "frm_detalle", tb = "") {
     let form = document.getElementById(formId);
     if (!form) {
@@ -88,26 +71,7 @@ function enviardatos_d(url, formId = "frm_detalle", tb = "") {
             });
     });
 }
-
-// funcion enviardatosd original
-// function enviardatos_d(url) {
-//     let form = document.getElementById("frm_detalle");
-//     let datos = new FormData(form);
-//     fetch(url, {
-//         method: "POST",
-//         body: datos
-//     })
-//     .then(() => {
-//         let compra_id = document.getElementById("compra_id").value;
-//         fetch("/detalles_compra/index.php?id_compra=" + encodeURIComponent(compra_id))
-//             .then(r => r.text())
-//             .then(html => {
-//                 document.getElementById("contenedorDetalles").innerHTML = html;
-//             });
-//     });
-// }
-
-    function peticiones(accion, url = "/categorias/frm.php", formId = "frm") {
+function peticiones(accion, url = "/categorias/frm.php", formId = "frm") {
     const form = document.getElementById(formId);
     const formData = new FormData(form);
     formData.set("accion", accion);
@@ -126,7 +90,6 @@ const detallesMap = {
     compras: "detalles_compra",
     ventas: "detalles_venta"
 };
-
 function editar(id, tb, formId = tb) {
     let datos = new FormData();
     let sql = "select * from " + tb + " where id = " + id;
@@ -147,7 +110,6 @@ function editar(id, tb, formId = tb) {
                 campo.value = registro[key];
             }
         });
-        // Si necesitas cargar detalles, aquí puedes agregar tu lógica extra
         const detallesMap = {
             compras: "detalles_compra",
             ventas: "detalles_venta"
@@ -169,73 +131,7 @@ if (ventaIdInput) ventaIdInput.value = id;
         }
     });         
 }
-
-// funcion editar pre 21/5
-// function editar(id, tb, formId = tb) {
-//     let datos = new FormData();
-//     let sql = "select * from " + tb + " where id = " + id;
-//     datos.append("sql", sql);
-//     fetch("/" + tb + "/registro.php", {
-//         body: datos,
-//         method: "post"
-//     })
-//     .then(response => response.json())
-//     .then(data => { 
-//         let registro = data;
-//         let form = document.getElementById(formId);
-//         let formData = new FormData(form);
-//         for (const key of formData.keys()) {
-//             let campo = document.getElementById(key);
-//             if (campo && registro[key] !== undefined) {
-//                 campo.value = registro[key];
-//             }
-//         }
-//      const detallesCarpeta = detallesMap[tb];
-// if (detallesCarpeta) {
-//     let detallesDiv = document.getElementById("contenedorDetalles");
-//     if (detallesDiv) {
-//         // Ajusta el parámetro según tu BD
-//         let param = tb === "compras" ? "id_compra" : "id_venta";
-//         fetch("/" + detallesCarpeta + "/index.php?" + param + "=" + encodeURIComponent(id))
-//             .then(res => res.text())
-//             .then(html => {
-//                 detallesDiv.innerHTML = html;
-//                 detallesDiv.style.display = "block";
-//             });
-//     }
-// }
-//     });         
-// }
-
-// funcion editar original
-// function editar(id,tb){
-//     datos = new FormData();
-//     sql = "select * from "+ tb + " where id = " + id;
-//     datos.append("sql",sql);
-//     fetch("/"+tb+"/registro.php", {
-//         body: datos,
-//        method: "post"})
-//     .then(response => response.json())
-//     .then(data => { 
-//         registro = data;
-//         datos = new FormData(document.getElementById("compras"));
-//         for (const key of datos.keys()) {
-//             campo = document.getElementById(key);
-//             campo.value = registro[key];
-//           }
-//     });         
-// }
-
-// funcion editar original
-//  function editar(id,nombre){
-//     // alert(id +" " + nombre);
-//     id2 = document.getElementById('id');
-//     nombre2 = document.getElementById('nombre');
-//     id2.value = id;
-//     nombre2.value = nombre;
-//  }
-
- function eliminar(id, url, divId) {
+function eliminar(id, url, divId) {
     const cont = document.querySelector("#" + divId);
     fetch(url + "?id=" + id)
         .then(response => response.text())
@@ -247,7 +143,6 @@ function eliminar2(id,tb) {
         .then(response => response.text())
         .then(data => { cont3.innerHTML = data });
 }
-
 function eliminarDetalle(id, tb = "detalles_compra") {
     const idField = tb === "detalles_venta" ? "venta_id" : "compra_id";
     fetch("/" + tb + "/eliminar.php?id=" + id + "&tb=" + tb)
@@ -261,42 +156,6 @@ function eliminarDetalle(id, tb = "detalles_compra") {
                 });
         });
 }
-
-
-
-// funcion eliminardet original
-// function eliminarDetalle(id) {
-//     fetch("/detalles_compra/eliminar.php?id=" + id + "&tb=detalles_compra")
-//         .then(response => response.text())
-//         .then(() => {
-//             let compra_id = document.getElementById("compra_id").value;
-//             fetch("/detalles_compra/index.php?id_compra=" + encodeURIComponent(compra_id))
-//                 .then(r => r.text())
-//                 .then(html => {
-//                     document.getElementById("contenedorDetalles").innerHTML = html;
-//                 });
-//         });
-// }
-
-//PRUEBA FUNCION CONSULTAR TABLA
-// function consultarTabla(url, divId) {
-//     fetch(url)
-//         .then(response => response.text())
-//         .then(data => {
-//             document.getElementById(divId).innerHTML = data;
-//         });
-// }
-
-// funcion original de eliminar
-//  function eliminar(id) {
-//     cont3 = document.querySelector("#contenedor3");
-//     datos = new FormData(document.getElementById("frm"));
-//     fetch("/categorias/eliminar.php?id="+id)
-//     .then(response => response.text())
-//     .then(data => {cont3.innerHTML = data;})
-//  }
-
-
 function buscarPorColumna(tabla) {
     var columna = document.getElementById('buscar_columna').value;
     var valor = document.getElementById('buscar_valor').value;
@@ -307,15 +166,3 @@ function buscarPorColumna(tabla) {
             document.getElementById('buscar_valor').value = valor;
         });
 }
-
-// original searchbar
-// function buscarPorId() {
-//     var id = document.getElementById('buscar_id').value;
-//     fetch('/articulos/tabla.php?buscar_id=' + encodeURIComponent(id))
-//         .then(response => response.text())
-//         .then(html => {
-//             document.getElementById('contenedor3').innerHTML = html;
-//             // Mantén el valor en el input después de la búsqueda
-//             document.getElementById('buscar_id').value = id;
-//         });
-// }

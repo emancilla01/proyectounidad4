@@ -6,11 +6,11 @@ if (!isset($datos)) {
 
     $where = "";
     if (isset($_GET['columna']) && isset($_GET['valor']) && $_GET['valor'] !== "") {
-        $columna = preg_replace('/[^a-zA-Z0-9_]/', '', $_GET['columna']); // Seguridad básica
+        $columna = preg_replace('/[^a-zA-Z0-9_]/', '', $_GET['columna']); 
         $valor = htmlspecialchars($_GET['valor']);
         $where = " WHERE $columna LIKE '%$valor%'";
     }
-    $sql = "SELECT * FROM compras $where"; // Cambia 'articulos' por la tabla correspondiente
+    $sql = "SELECT * FROM compras $where"; 
     $datos = $db->obtenerRegistros($sql);
 }
 ?>
@@ -30,10 +30,7 @@ if (!isset($datos)) {
             <td><?php echo $dato['total'];?></td>
             <td><?php echo $dato['fecha'];?></td>
             <td><button onclick="  editar('<?php echo $dato['id']; ?>','<?php echo 'compras'; ?>')">Editar</button></td> 
-            <!-- <td><button onclick="editar(<?php echo $dato['id'];?>,<?php echo $dato['proveedor_id'];?>,<?php echo $dato['total'];?>,<?php echo $dato['fecha'];?>)" >Editar</button></td> -->
-            <!-- <td><button onclick="eliminar(<?php echo $dato['id'];?>)" >Eliminar</button></td> -->
-            <!-- <td><button onclick="eliminar(<?php echo $dato['id']; ?>, '/compras/eliminar.php', 'contenedor1')">Eliminar</button></td> -->
-             <td><button onclick="eliminar2('<?php echo $dato['id']; ?>','<?php echo 'compras'; ?>')">Eliminar</button></td>
+            <td><button onclick="eliminar2('<?php echo $dato['id']; ?>','<?php echo 'compras'; ?>')">Eliminar</button></td>
         </tr>
         <?php } ?>
     </table>

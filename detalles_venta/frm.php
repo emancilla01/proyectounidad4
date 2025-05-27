@@ -8,7 +8,6 @@ if (!isset($datos_d) || !is_array($datos_d)) {
         <tr>
             <td class="oculto" ><input type="hidden" name="id" id="id" value=""></td>
             <td class="oculto" ><input type="hidden" name="venta_id" id="venta_id" value="<?php echo isset($venta_id) ? $venta_id : ''; ?>"></td>
-            
             <td> 
                 <select name="articulo_id" id="articulo_id">
                     <option value="0" >Seleccionar Articulo</option>

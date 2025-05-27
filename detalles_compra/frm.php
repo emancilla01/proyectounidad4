@@ -7,7 +7,7 @@ if (!isset($datos_d) || !is_array($datos_d)) {
     <table>
         <tr>
             <td class="oculto"><input type="hidden" name="id" id="id" value=""></td>
-            <td class="oculto" ><input type="hidden" name="compra_id" id="compra_id" value="<?php echo isset($id_compra) ? $id_compra : ''; ?>" readonly></td>
+            <td class="oculto" ><input type="hidden" name="compra_id" id="compra_id" value="<?php echo isset($compra_id) ? $compra_id : ''; ?>" readonly></td>
             <td> 
                 <select name="articulo_id" id="articulo_id">
                     <option value="0" >Seleccionar Articulo</option>

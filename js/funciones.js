@@ -156,7 +156,7 @@ function editar(id, tb, formId = tb) {
         if (detallesCarpeta) {
             let detallesDiv = document.getElementById("contenedorDetalles");
             if (detallesDiv) {
-                let param = tb === "compras" ? "id_compra" : "venta_id";
+                let param = tb === "compras" ? "compra_id" : "venta_id";
                 fetch("/" + detallesCarpeta + "/index.php?" + param + "=" + encodeURIComponent(id))
                     .then(res => res.text())
                     .then(html => {

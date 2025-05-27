@@ -21,7 +21,7 @@
   $sql = "INSERT INTO compras (proveedor_id, total, fecha) 
                 VALUES ('$proveedor_id', '$total', '$fecha')";
   $compras->insertar($sql);
-  include "../compras/tabla.php";
+  include "../compras/index.php";
   
   $compras->desconectar();
 ?> 

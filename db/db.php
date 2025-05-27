@@ -40,9 +40,10 @@ class db {
         try {
             // use exec() because no results are returned
             $this->conn->exec($sql);
-            echo "Registro insertado correctamente";
+
+            // echo "Registro insertado correctamente";
         } catch(PDOException $e) {
-            echo $sql . "<br>" . $e->getMessage();
+            // echo $sql . "<br>" . $e->getMessage();
         }        
     }
     public function actualizar($sql){
@@ -50,9 +51,9 @@ class db {
         try {
             // use exec() because no results are returned
             $this->conn->exec($sql);
-            echo "Registro actualizado correctamente";
+            // echo "Registro actualizado correctamente";
         } catch(PDOException $e) {
-            echo "<br>" . $e->getMessage();
+            // echo "<br>" . $e->getMessage();
         }
         
     }

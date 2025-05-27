@@ -30,7 +30,7 @@
                   '$articulo_id',
                   '$cantidad',
                   '$precio_unitario',
-                  '$subtotal')";
+                  $cantidad * $precio_unitario)";
   $dbventas->insertar($sql);
   }
 

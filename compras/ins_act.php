@@ -16,6 +16,7 @@
             WHERE id = '$id'"; 
     $compras->actualizar($sql);
     echo "Registro actualizado correctamente";
+    include "../compras/index.php";
     exit();
   }
   $sql = "INSERT INTO compras (proveedor_id, total, fecha) 

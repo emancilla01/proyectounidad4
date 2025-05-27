@@ -26,11 +26,12 @@
             WHERE id = '$id'"; 
     $ventas->actualizar($sql);
     echo "Registro actualizado correctamente";
+    include "../ventas/index.php";
     exit();
   }
   $sql = "INSERT INTO ventas (usuario_id, total, tipo_pago, estado, saldo_pendiente, fecha, fecha_limite_pago, tasa_interes) 
                 VALUES ('$usuario_id', '$total', '$tipo_pago', '$estado', '$saldo_pendiente', '$fecha', '$fecha_limite_pago', '$tasa_interes')";
   $ventas->insertar($sql);
-  
+  include "../ventas/index.php";
   $ventas->desconectar();
 ?> 

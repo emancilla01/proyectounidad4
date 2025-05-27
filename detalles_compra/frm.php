@@ -20,7 +20,7 @@ if (!isset($datos_d) || !is_array($datos_d)) {
             </td>
             <td> <input type="number" name="cantidad" id="cantidad" > </td>
             <td><input type="number" name="precio_unitario" id="precio_unitario"> </td>
-            <td><input type="number" name="subtotal" id="subtotal" style="width:70px"></td>
+            <td><input type="number" name="subtotal" id="subtotal" style="width:70px" readonly></td>
             <td><button onclick="enviardatos_d('/detalles_compra/ins_act.php')">Grabar</button></td>
         </tr>
         <tr>

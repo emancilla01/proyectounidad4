@@ -161,3 +161,7 @@ form, article  > div {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
+.oculto {
+    display: none;
+    border: none !important;
+}

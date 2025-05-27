@@ -26,7 +26,7 @@
             <header>
                 <h1>Tennis & Whiskey</h1>
                 <span id="nombreUsuario"></span>
-                <button onclick="ver('/Login.html')">Login</button>
+                <button id="loginLogoutBtn" onclick="ver('/Login.php')">Login</button>
             </header>
             <div id="contenedor1">            
                 <article>

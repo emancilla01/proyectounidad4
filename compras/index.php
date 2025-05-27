@@ -4,6 +4,8 @@ include_once "../db/db.php";
 $dbventas = new db();
 $dbventas->conectar();
 
+$compra_id = isset($_GET['compra_id']) ? intval($_GET['compra_id']) : 0;
+
 $sql = "SELECT *  FROM compras";
 $datos2 = $dbventas->obtenerRegistros($sql);
 

@@ -7,17 +7,55 @@ function enviar() {
         credentials: "same-origin"
     })
         .then (response => response.text())
-        .then (data => {div1.innerHTML += data; mostrarUsuario();});
+        .then (data => {div1.innerHTML += data; 
+            mostrarUsuario();
+            updateLoginLogoutBtn();
+        });
 }
+
+function updateLoginLogoutBtn() {
+    fetch('/autenticacion/usuario_actual.php')
+        .then(response => response.json())
+        .then(data => {
+            const btn = document.getElementById('loginLogoutBtn');
+            const nombreUsuario = document.getElementById('nombreUsuario');
+            if (!btn || !nombreUsuario) return;
+
+            if (data.logged_in) {
+                btn.textContent = 'Logout';
+                nombreUsuario.textContent = data.usuario;
+                btn.onclick = function() {
+                    // Logout via form submission for security
+                    const form = document.createElement('form');
+                    form.method = 'post';
+                    form.action = '/autenticacion/logout.php';
+                    document.body.appendChild(form);
+                    form.submit();
+                };
+            } else {
+                btn.textContent = 'Login';
+                nombreUsuario.textContent = '';
+                btn.onclick = function() {
+                    ver('/Login.php');
+                };
+            }
+        });
+}
+document.addEventListener('DOMContentLoaded', updateLoginLogoutBtn);
 function mostrarUsuario() {
     fetch('/autenticacion/usuario_actual.php')
-        .then(response => response.text())
-        .then(nombre => {
-            document.getElementById('nombreUsuario').textContent = nombre ? `Usuario: ${nombre}` : '';
+        .then(response => response.json())
+        .then(data => {
+            const nombreUsuario = document.getElementById('nombreUsuario');
+            if (data.logged_in) {
+                nombreUsuario.textContent = `Usuario: ${data.usuario}`;
+            } else {
+                nombreUsuario.textContent = '';
+            }
             // Deshabilita los enlaces del menú si no hay usuario
             const menuLinks = document.querySelectorAll('aside ul li a');
             menuLinks.forEach(link => {
-                if (!nombre) {
+                if (!data.logged_in) {
                     link.onclick = function(e) { e.preventDefault(); return false; };
                     link.style.pointerEvents = "none";
                     link.style.opacity = "0.5";

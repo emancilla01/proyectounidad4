@@ -3,9 +3,9 @@ include_once "../db/db.php";
 $dbventas = new db();
 $dbventas->conectar();
 
-$id_compra = isset($_GET['id_compra']) ? intval($_GET['id_compra']) : 0;
+$compra_id = isset($_GET['compra_id']) ? intval($_GET['compra_id']) : 0;
 
-$sql = "SELECT * FROM detalles_compra WHERE compra_id = $id_compra"; 
+$sql = "SELECT * FROM detalles_compra WHERE compra_id = $compra_id"; 
 $datos_d = $dbventas->obtenerRegistros($sql);
 
 $sql = "SELECT * FROM articulos"; 
